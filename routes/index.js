@@ -1,25 +1,25 @@
-const express = require('express');
-const { isLoggedOut, isLoggedIn } = require('../middleware/route-guard');
-const router = express.Router()
+const express = require("express");
+const { isLoggedOut, isLoggedIn } = require("../middleware/route-guard");
+const router = express.Router();
 
 /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-router.get('/main', (req, res, next) => {
+router.get("/main", (req, res, next) => {
   try {
-    res.render('main')
+    res.render("main");
   } catch (error) {
-   next(error) 
+    next(error);
   }
 });
 
-router.get('/private', isLoggedIn, (req, res, next) => {
+router.get("/private", isLoggedIn, (req, res, next) => {
   try {
-    res.render('private')
+    res.render("private");
   } catch (error) {
-   next(error) 
+    next(error);
   }
 });
 
